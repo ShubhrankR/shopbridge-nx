@@ -1,0 +1,18 @@
+.custom-navbar {
+    @apply relative;
+    @apply w-full;
+    @apply flex;
+    @apply flex-wrap;
+    @apply items-center;
+    @apply justify-between;
+    @apply py-4;
+    @apply bg-white;
+    @apply text-gray-500;
+    @apply hover:text-gray-700;
+    @apply focus:text-gray-700;
+    @layer navbar;
+    @apply navbar-expand-lg;
+    @apply navbar-light;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / 10%),
+        0 4px 6px -2px rgb(0 0 0 / 5%);
+}

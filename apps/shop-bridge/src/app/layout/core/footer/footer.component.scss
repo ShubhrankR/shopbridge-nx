@@ -1,0 +1,16 @@
+.footer-love {
+    color: rgba(107, 114, 128, 1);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    @apply my-10;
+    opacity: 0.6;
+    text-align: center;
+
+    svg {
+        color: rgba(252, 165, 165, 1);
+        width: 1.25rem;
+        height: 1.25rem;
+        display: inline;
+        margin-top: -0.25rem;
+    }
+}

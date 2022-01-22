@@ -1,0 +1,85 @@
+.learning-materials {
+    padding: 2.5rem 2rem;
+
+    h2 {
+        font-weight: 500;
+        font-size: 1.25rem;
+        letter-spacing: -0.025em;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.list-item-link {
+    align-items: center;
+    border-radius: 0.75rem;
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform, filter, backdrop-filter,
+        -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    width: 100%;
+}
+
+.list-item-link svg:first-child {
+    margin-right: 1rem;
+    height: 1.5rem;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform, filter, backdrop-filter,
+        -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    width: 1.5rem;
+}
+
+.list-item-link > span {
+    flex-grow: 1;
+    font-weight: 400;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform, filter, backdrop-filter,
+        -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.list-item-link > span > span {
+    color: rgba(107, 114, 128, 1);
+    display: block;
+    flex-grow: 1;
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1rem;
+    transition-property: background-color, border-color, color, fill, stroke,
+        opacity, box-shadow, transform, filter, backdrop-filter,
+        -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.list-item-link svg:last-child {
+    height: 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    width: 1rem;
+}
+
+.list-item-link:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: hsla(162, 47%, 50%, 1);
+}
+
+.list-item-link:hover > span {
+}
+
+.list-item-link:hover > span > span {
+    color: rgba(243, 244, 246, 1);
+}
+
+.list-item-link:hover svg:last-child {
+    transform: translateX(0.25rem);
+}

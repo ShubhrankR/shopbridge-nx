@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ Contents of Styles
+ ---------------------
+ 1. Tailwind
+ 2. Common
+ 3. Global
+ */
+
+@import './assets/scss/tailwind';
+@import './assets/scss/global';
+@import './assets/scss/common';

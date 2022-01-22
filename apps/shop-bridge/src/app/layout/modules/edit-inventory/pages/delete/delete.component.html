@@ -1,0 +1,103 @@
+<ng-container *ngIf="isItemLoadedFromInventory; else showLoading">
+    <section class="max-w-screen-md mx-auto">
+        <div class="welcome-note">
+            <h1>
+                <span> Hello there 👋</span>
+                You are about to delete an item from inventory
+            </h1>
+        </div>
+        <div class="block p-6 rounded shadow bg-white">
+            <ng-container *ngIf="!isItemDeleted; else ItemDeletedSuccessfully">
+                <div
+                    class="bg-yellow-100 rounded-lg py-5 px-6 mb-3 text-base text-yellow-700 inline-flex items-center w-full"
+                    role="alert"
+                >
+                    <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 mr-2 fill-current"
+                        data-icon="exclamation-triangle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 576 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                    This action is irreversible! Be cautious of what you are
+                    deleting.
+                </div>
+                <div class="flex justify-center py-4">
+                    <img
+                        [src]="sadFaceSVGPath"
+                        alt="Sad face"
+                        class="w-20 h-20"
+                    />
+                </div>
+                <div class="flex justify-center">
+                    <ul class="bg-white rounded-lg w-96 text-gray-900">
+                        <li
+                            class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"
+                        >
+                            <strong>Name</strong> : {{ inventoryItem.name }}
+                        </li>
+                        <li class="px-6 py-2 border-b border-gray-200 w-full">
+                            <strong>Description</strong> :
+                            {{ inventoryItem.description }}
+                        </li>
+                        <li class="px-6 py-2 w-full rounded-b-lg w-full">
+                            <strong>Price</strong> : {{ inventoryItem.price }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center py-4">
+                    <button
+                        (click)="deleteItem()"
+                        class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                        type="button"
+                    >
+                        Confirm Delete
+                    </button>
+                </div>
+            </ng-container>
+            <ng-template #ItemDeletedSuccessfully>
+                <div
+                    class="bg-gray-50 rounded-lg py-5 px-6 mb-3 text-base text-gray-500 inline-flex items-center w-full"
+                    role="alert"
+                >
+                    <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 mr-2 fill-current"
+                        data-icon="grin-hearts"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        viewBox="0 0 496 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zM90.4 183.6c6.7-17.6 26.7-26.7 44.9-21.9l7.1 1.9 2-7.1c5-18.1 22.8-30.9 41.5-27.9 21.4 3.4 34.4 24.2 28.8 44.5L195.3 243c-1.2 4.5-5.9 7.2-10.5 6l-70.2-18.2c-20.4-5.4-31.9-27-24.2-47.2zM248 432c-60.6 0-134.5-38.3-143.8-93.3-2-11.8 9.2-21.5 20.7-17.9C155.1 330.5 200 336 248 336s92.9-5.5 123.1-15.2c11.4-3.6 22.6 6.1 20.7 17.9-9.3 55-83.2 93.3-143.8 93.3zm133.4-201.3l-70.2 18.2c-4.5 1.2-9.2-1.5-10.5-6L281.3 173c-5.6-20.3 7.4-41.1 28.8-44.5 18.6-3 36.4 9.8 41.5 27.9l2 7.1 7.1-1.9c18.2-4.7 38.2 4.3 44.9 21.9 7.7 20.3-3.8 41.9-24.2 47.2z"
+                            fill="currentColor"
+                        ></path>
+                    </svg>
+                    Great, you have deleted the item successfully.
+                </div>
+                <div class="flex justify-center">
+                    <button
+                        class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+                        routerLink="/"
+                        type="button"
+                    >
+                        Back to home
+                    </button>
+                </div>
+            </ng-template>
+        </div>
+    </section>
+</ng-container>
+<ng-template #showLoading>
+    <thinkbridge-page-loader></thinkbridge-page-loader>
+</ng-template>

@@ -1,0 +1,119 @@
+<ng-container *ngIf="isInventoryLoaded; else showLoading">
+    <section class="max-w-screen-lg mx-auto">
+        <div class="welcome-note">
+            <h1>
+                <span> Hello there 👋</span>
+                Here is a list of all items in inventory
+            </h1>
+        </div>
+        <div class="flex flex-col">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full">
+                            <thead class="bg-white border-b">
+                                <tr>
+                                    <th
+                                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                                        scope="col"
+                                    >
+                                        #
+                                    </th>
+                                    <th
+                                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                                        scope="col"
+                                    >
+                                        Name
+                                    </th>
+                                    <th
+                                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                                        scope="col"
+                                    >
+                                        Description
+                                    </th>
+                                    <th
+                                        class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                                        scope="col"
+                                    >
+                                        Price
+                                    </th>
+                                    <th
+                                        class="text-sm font-medium text-gray-900 px-6 py-4 flex flex-col items-center"
+                                        scope="col"
+                                    >
+                                        <svg
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            data-prefix="fas"
+                                            data-icon="sliders-h"
+                                            class="w-6 h-6"
+                                            role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M496 384H160v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h80v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h336c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160h-80v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h336v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h80c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160H288V48c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16C7.2 64 0 71.2 0 80v32c0 8.8 7.2 16 16 16h208v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h208c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16z"
+                                            ></path>
+                                        </svg>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container
+                                    *ngFor="
+                                        let item of displayInventory;
+                                        let i = index
+                                    "
+                                >
+                                    <tr
+                                        class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                                    >
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+                                        >
+                                            {{ i + 1 }}
+                                        </td>
+                                        <td
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                        >
+                                            {{ item.name }}
+                                        </td>
+                                        <td
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                        >
+                                            {{ item.description }}
+                                        </td>
+                                        <td
+                                            class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"
+                                        >
+                                            {{ item.price }}
+                                        </td>
+                                        <td
+                                            class="text-sm text-gray-900 font-light px-6 py-4 text-center whitespace-nowrap"
+                                        >
+                                            <button
+                                                (click)="
+                                                    editItem(
+                                                        item.id ? item.id : 0
+                                                    )
+                                                "
+                                                type="button"
+                                                class="inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out"
+                                            >
+                                                Edit
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
+<ng-template #showLoading>
+    <thinkbridge-page-loader></thinkbridge-page-loader>
+</ng-template>

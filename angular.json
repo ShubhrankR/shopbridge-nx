@@ -1,7 +1,9 @@
 {
-  "version": 2,
-  "projects": {
-    "shop-bridge": "apps/shop-bridge",
-    "shop-bridge-e2e": "apps/shop-bridge-e2e"
-  }
+    "version": 2,
+    "projects": {
+        "api": "apps/api",
+        "data": "libs/data",
+        "shop-bridge": "apps/shop-bridge",
+        "shop-bridge-e2e": "apps/shop-bridge-e2e"
+    }
 }
