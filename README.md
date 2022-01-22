@@ -21,10 +21,12 @@ ShopeBridge is an **Inventory management app**, in which user will log in as **a
 - Step I = Clone the repo
 - Step II = Make sure you have the latest NodeJS installed in your machine.
 - (Note: At the time of creation, I used **Node v16.13.2**)
-- Step III = Once cloned, go inside the directory and run -
+- Step III = Once cloned, go inside the directory and run the below command in the terminal -
 - ``npm i``
 - Step IV = Once all the node dependencies installed, run the following command -
 - ``npm run app``
+- Step V = Now, open any web browser of your choice and enter following url -
+- ``localhost:4200``
 
 ### Future release -
 Right now, there is no database setup in the app to store the inventory data. This will be added in future release of the app.
