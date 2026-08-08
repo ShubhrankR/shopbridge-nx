@@ -4,6 +4,7 @@ import {InventoryItemDataModel} from '@thinkbridge/data';
 import {DataService} from '../../../../../data/services/data.service';
 
 @Component({
+    standalone: false,
     selector: 'thinkbridge-delete',
     templateUrl: './delete.component.html',
     styleUrls: ['./delete.component.scss'],

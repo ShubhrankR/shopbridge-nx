@@ -4,6 +4,7 @@ import {InventoryItemDataModel} from '@thinkbridge/data';
 import {Router} from '@angular/router';
 
 @Component({
+    standalone: false,
     selector: 'thinkbridge-list-inventory',
     templateUrl: './list-inventory.component.html',
     styleUrls: ['./list-inventory.component.scss'],

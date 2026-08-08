@@ -6,6 +6,7 @@ import {
 import {DataService} from '../../../data/services/data.service';
 
 @Component({
+    standalone: false,
     selector: 'thinkbridge-add-inventory',
     templateUrl: './add-inventory.component.html',
     styleUrls: ['./add-inventory.component.scss'],

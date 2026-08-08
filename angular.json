@@ -1,9 +1,5 @@
 {
+    "$schema": "./node_modules/nx/schemas/project-schema.json",
     "version": 2,
-    "projects": {
-        "api": "apps/api",
-        "data": "libs/data",
-        "shop-bridge": "apps/shop-bridge",
-        "shop-bridge-e2e": "apps/shop-bridge-e2e"
-    }
+    "projects": {}
 }

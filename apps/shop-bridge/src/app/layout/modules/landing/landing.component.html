@@ -1,79 +1,117 @@
-<div class="max-w-screen-md mx-auto">
-    <section class="welcome-note">
-        <h1>
-            <span> Hello there, </span>
-            Welcome to ShopBridge 👋
-        </h1>
-    </section>
-    <section>
-        <div class="learning-materials rounded shadow">
-            <h2>Admin Privileges</h2>
-            <a class="list-item-link" rel="noreferrer" routerLink="/list">
-                <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                    />
-                </svg>
-                <span>
-                    Inventory
-                    <span>
-                        Everything is in there, like update, delete, so on ...
-                    </span>
-                </span>
-                <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M9 5l7 7-7 7"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                    />
-                </svg>
-            </a>
-            <a class="list-item-link" rel="noreferrer" routerLink="/add">
-                <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                    />
-                </svg>
-                <span>
-                    Add Item
-                    <span> Be god, create life </span>
-                </span>
-                <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M9 5l7 7-7 7"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                    />
-                </svg>
-            </a>
+<div class="w-full max-w-3xl mx-auto space-y-8 my-auto py-4">
+    
+    <!-- Hero Section -->
+    <div class="text-center space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full neu-input text-indigo-500 text-xs font-semibold uppercase tracking-wider">
+            <i class="fa-solid fa-layer-group text-xs"></i>
+            <span>Tactile Admin Interface</span>
         </div>
-    </section>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-['Outfit'] text-theme-main">
+            Hello there, <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                Welcome to ShopBridge
+            </span> 👋
+        </h1>
+        <p class="text-theme-secondary text-xs sm:text-sm max-w-lg mx-auto font-light leading-relaxed">
+            Streamlined store inventory management. Monitor, update, and manage your products with physical depth and clarity.
+        </p>
+    </div>
+
+    <!-- Admin Privileges Cards -->
+    <div class="space-y-4">
+        <div class="flex items-center justify-between px-1">
+            <h2 class="text-sm font-bold text-theme-main font-['Outfit'] flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-indigo-500 text-xs"></i>
+                <span>Admin Privileges</span>
+            </h2>
+            <span class="text-[11px] text-theme-muted font-medium">Quick Access</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            
+            <!-- View Inventory Card -->
+            <a
+                routerLink="/list"
+                class="group block p-6 neu-card hover:scale-[1.01] transition-all duration-300 relative overflow-hidden"
+            >
+                <div class="flex items-start space-x-4">
+                    <div class="w-11 h-11 rounded-2xl neu-input flex items-center justify-center text-indigo-500 group-hover:scale-105 transition-all flex-shrink-0">
+                        <i class="fa-solid fa-boxes-stacked text-lg"></i>
+                    </div>
+                    <div class="flex-grow space-y-1">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-base font-bold text-theme-main group-hover:text-indigo-500 transition-colors">
+                                Store Inventory
+                            </h3>
+                            <i class="fa-solid fa-chevron-right text-theme-muted text-xs group-hover:text-indigo-500 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-xs text-theme-secondary font-light leading-snug">
+                            View whole product list, edit pricing, update descriptions or delete records.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Add Item Card -->
+            <a
+                routerLink="/add"
+                class="group block p-6 neu-card hover:scale-[1.01] transition-all duration-300 relative overflow-hidden"
+            >
+                <div class="flex items-start space-x-4">
+                    <div class="w-11 h-11 rounded-2xl neu-input flex items-center justify-center text-emerald-500 group-hover:scale-105 transition-all flex-shrink-0">
+                        <i class="fa-solid fa-circle-plus text-lg"></i>
+                    </div>
+                    <div class="flex-grow space-y-1">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-base font-bold text-theme-main group-hover:text-emerald-500 transition-colors">
+                                Add New Item
+                            </h3>
+                            <i class="fa-solid fa-chevron-right text-theme-muted text-xs group-hover:text-emerald-500 group-hover:translate-x-1 transition-all"></i>
+                        </div>
+                        <p class="text-xs text-theme-secondary font-light leading-snug">
+                            Create new inventory records with auto validation and live catalog updates.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Neumorphic Quick Stat Pills -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+        <div class="p-3.5 neu-card-sm flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl neu-input text-indigo-500 flex items-center justify-center text-xs">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+                <p class="text-[10px] text-theme-muted font-medium">REST API</p>
+                <p class="text-xs font-bold text-emerald-500 flex items-center mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
+                    Online (Port 3333)
+                </p>
+            </div>
+        </div>
+
+        <div class="p-3.5 neu-card-sm flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl neu-input text-purple-500 flex items-center justify-center text-xs">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div>
+                <p class="text-[10px] text-theme-muted font-medium">Architecture</p>
+                <p class="text-xs font-bold text-purple-500 mt-0.5">Angular 19 & Nest 11</p>
+            </div>
+        </div>
+
+        <div class="p-3.5 neu-card-sm flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-xl neu-input text-pink-500 flex items-center justify-center text-xs">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <p class="text-[10px] text-theme-muted font-medium">Security</p>
+                <p class="text-xs font-bold text-pink-500 mt-0.5">Validated Contracts</p>
+            </div>
+        </div>
+    </div>
+
 </div>

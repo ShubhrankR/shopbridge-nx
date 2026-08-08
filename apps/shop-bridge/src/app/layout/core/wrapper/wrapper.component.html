@@ -1,5 +1,18 @@
-<thinkbridge-header></thinkbridge-header>
-<main class="container mx-auto p-4">
-    <router-outlet></router-outlet>
-</main>
-<thinkbridge-footer class="lg:absolute lg:bottom-0 w-full"></thinkbridge-footer>
+<!-- Interactive Ambient Background Canvas (Mouse Tracking Animation) -->
+<canvas #bgCanvas class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+<!-- Centered Spatial Container -->
+<div class="min-h-screen flex flex-col justify-between items-center w-full max-w-5xl mx-auto px-4 py-6 space-y-8 relative z-10">
+    
+    <!-- Centered Neumorphic Header Navigation -->
+    <thinkbridge-header class="w-full flex justify-center"></thinkbridge-header>
+    
+    <!-- Main Content Container (Centered Vertically and Horizontally) -->
+    <main class="w-full flex-grow flex flex-col justify-center my-auto py-2">
+        <router-outlet></router-outlet>
+    </main>
+
+    <!-- Centered Neumorphic Footer Navigation -->
+    <thinkbridge-footer class="w-full flex justify-center mt-auto"></thinkbridge-footer>
+
+</div>

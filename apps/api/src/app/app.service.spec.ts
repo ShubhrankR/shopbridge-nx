@@ -1,11 +1,10 @@
 import {Test} from '@nestjs/testing';
-
 import {AppService} from './app.service';
 
 describe('AppService', () => {
     let service: AppService;
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         const app = await Test.createTestingModule({
             providers: [AppService],
         }).compile();
@@ -13,9 +12,23 @@ describe('AppService', () => {
         service = app.get<AppService>(AppService);
     });
 
-    describe('getData', () => {
-        it('should return "Welcome to api!"', () => {
-            expect(service.getData()).toEqual({message: 'Welcome to api!'});
+    describe('getWholeInventory', () => {
+        it('should return initial inventory items', () => {
+            const inventory = service.getWholeInventory();
+            expect(inventory).toHaveLength(2);
+            expect(inventory[0].name).toBe('Item1 - Monitor');
+        });
+    });
+
+    describe('addItemToInventory', () => {
+        it('should add a new item with auto-incremented ID', () => {
+            const newItem = service.addItemToInventory({
+                name: 'New Test Item',
+                description: 'Test Description',
+                price: 500,
+            });
+            expect(newItem.id).toBe(1003);
+            expect(service.getWholeInventory()).toHaveLength(3);
         });
     });
 });
