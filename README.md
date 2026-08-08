@@ -1,5 +1,10 @@
 # ShopBridge
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-6366f1?style=for-the-badge&logo=github)](https://shubhrankr.github.io/shopbridge-nx/home)
+
+> **🌐 Live Interactive Demo**: Experience the web application deployed live on GitHub Pages:  
+> 👉 **[https://shubhrankr.github.io/shopbridge-nx/home](https://shubhrankr.github.io/shopbridge-nx/home)**
+
 This repository contains the full-stack codebase for **ShopBridge**, an Inventory Management monorepo built with Nx 20, Angular 19, NestJS 11, and Tailwind CSS featuring a **Soft Neumorphic & Tactile UI Design System** with an **Interactive Canvas Mouse-Tracking Animation** and a **Light / Dark Mode Theme Switcher**.
 
 ShopBridge enables administrators to manage store inventory via full CRUD (Create, Read, Update, Delete) operations.
@@ -23,6 +28,7 @@ Detailed project and technical documentation is available in the [`docs/`](docs/
 
 ## Tech Stack & UI Specifications
 
+- **Live Deployment**: Hosted on GitHub Pages ([https://shubhrankr.github.io/shopbridge-nx/home](https://shubhrankr.github.io/shopbridge-nx/home))
 - **Node.js Environment**: Compatible with Node.js 20, 22, and 24 (`v24.19.0`)
 - **Monorepo Management**: [Nx Workspace](https://nx.dev/) version 20 (`@nx/*`)
 - **Frontend**: [Angular](https://angular.io/) version 19 (`@angular/*` ^19.1.0)
