@@ -1,12 +1,12 @@
 # ShopBridge System Architecture
 
-This document provides a technical overview of the architecture, design patterns, data flow, directory structure, and UI animation/theme engine of the **ShopBridge** workspace.
+This document provides a technical overview of the architecture, design patterns, data flow, directory structure, UI animation/theme engine, and GitHub Pages deployment workflow of the **ShopBridge** workspace.
 
 ---
 
 ## 1. High-Level Architecture Overview
 
-ShopBridge is built as an **Nx Monorepo** containing a full-stack e-commerce inventory management system. It separates concerns between the web frontend, backend microservice, shared data contract libraries, and end-to-end testing suites.
+ShopBridge is built as an **Nx Monorepo** containing a full-stack e-commerce inventory management system. It separates concerns between the web frontend, backend microservice, shared data contract libraries, and automated CI/CD deployment pipelines.
 
 ```mermaid
 graph TD
@@ -19,17 +19,17 @@ graph TD
     end
 
     subgraph Backend Layer
-        API[apps/api<br/>NestJS 11 REST API]
+        API[apps/api<br/>NestJS 11 REST API<br/>Webpack App Plugin]
     end
 
-    subgraph E2E Testing Layer
-        E2E[apps/shop-bridge-e2e<br/>Cypress Suite]
+    subgraph Deployment & CI/CD Layer
+        GHP[GitHub Actions Workflow<br/>.github/workflows/deploy-pages.yml<br/>Deploys Angular SPA to GitHub Pages]
     end
 
     SB -->|Imports Models| DATA
     API -->|Imports Models| DATA
     SB -->|HTTP REST Requests /api/inventory| API
-    E2E -->|Tests Application| SB
+    GHP -->|Builds & Deploys| SB
 ```
 
 ---
@@ -38,18 +38,23 @@ graph TD
 
 ```
 shopbridge-nx/
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml    # GitHub Actions Workflow for Automated GitHub Pages Deployment
+│
 ├── apps/
 │   ├── api/                    # NestJS 11 Backend Application
 │   │   ├── src/
 │   │   │   ├── app/            # App Module, Controller, Service
 │   │   │   └── main.ts         # Server Bootstrapper (Port 3333, Global Prefix 'api')
-│   │   └── project.json        # Nx Project Configuration (Webpack Bundler)
+│   │   ├── webpack.config.js   # NxAppWebpackPlugin Configuration (Nx 20 Standard)
+│   │   └── project.json        # Nx Project Configuration
 │   │
 │   ├── shop-bridge/            # Angular 19 Frontend Application
 │   │   ├── src/
 │   │   │   ├── app/
 │   │   │   │   ├── core/       # Core Angular Services & Shell Components
-│   │   │   │   ├── data/       # Data Access Services (HttpClient)
+│   │   │   │   ├── data/       # Data Access Services (HttpClient + localStorage Fallback)
 │   │   │   │   ├── layout/     # Neumorphic Shell, Header, Footer & Canvas Animation
 │   │   │   │   ├── shared/     # Reusable UI components (Page Loader)
 │   │   │   │   └── modules/    # Feature Modules (Landing, List, Add, Edit, Delete)
@@ -67,6 +72,7 @@ shopbridge-nx/
 ├── docs/                       # Project Architecture & API Specifications
 ├── .gitignore                  # Git Ignore Rules (Excludes .nx and .angular caches)
 ├── nx.json                     # Nx Monorepo Configuration
+├── package-lock.json           # Tracked dependency lockfile
 ├── package.json                # Project Dependencies & Scripts
 └── tsconfig.base.json          # TypeScript Compiler & Path Mappings (@thinkbridge/data)
 ```
@@ -97,9 +103,8 @@ The frontend uses a **Soft Neumorphic & Tactile UI Pattern** with a centered spa
 
 ---
 
-## 4. Key Design Patterns
+## 4. GitHub Pages & Static Host Integration
 
-1. **Monorepo Code Sharing**: Shared models defined in `libs/data` are compiled once and imported via TypeScript path `@thinkbridge/data`.
-2. **Centered Viewport Framework**: `wrapper.component.html` frames all views into a centered max-width container (`max-w-5xl mx-auto w-full min-h-screen flex flex-col justify-between items-center py-6 px-4`).
-3. **Lazy-Loaded Angular Feature Modules**: Features like `add-inventory`, `edit-inventory`, and `list-inventory` are lazy-loaded with dedicated routing modules.
-4. **In-Memory REST CRUD Abstraction**: NestJS service encapsulates data manipulations, returning typed validation errors (`404 Not Found`, `422 Unprocessable Entity`).
+1. **Automated CI/CD Workflow**: [.github/workflows/deploy-pages.yml](file:///.github/workflows/deploy-pages.yml) triggers on every push to `main`, building the Angular application with `--base-href=/shopbridge-nx/`.
+2. **SPA Routing Fallback**: Generates `404.html` (copy of `index.html`) so direct navigation to sub-routes (`/list`, `/add`, `/edit/:id`) works seamlessly without 404 static hosting errors.
+3. **Data Access Fallback**: In static hosting mode where the NestJS API server is offline, [DataService](file:///apps/shop-bridge/src/app/data/services/data.service.ts) catches HTTP errors and gracefully falls back to `localStorage` state, allowing visitors to test live CRUD operations on the GitHub Pages demo site.
