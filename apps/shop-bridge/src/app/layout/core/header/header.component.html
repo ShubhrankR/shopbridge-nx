@@ -1,89 +1,87 @@
-<nav class="custom-navbar">
-    <div
-        class="container-fluid w-full flex flex-wrap items-center justify-between px-6"
-    >
-        <button
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            class="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
-            data-bs-target="#navbarSupportedContent"
-            data-bs-toggle="collapse"
-            type="button"
-        >
-            <svg
-                aria-hidden="true"
-                class="w-6"
-                data-icon="bars"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                viewBox="0 0 448 512"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-                    fill="currentColor"
-                ></path>
-            </svg>
-        </button>
-        <div
-            class="collapse navbar-collapse flex-grow items-center"
-            id="navbarSupportedContent"
-        >
-            <a
-                class="flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1 px-5"
-                href="https://www.angular.io"
-                target="_blank"
-            >
-                <img
-                    alt="Angular Logo"
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-                    width="40"
-                />
-            </a>
-            <!-- Left links -->
-            <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
-                <li class="nav-item p-2">
-                    <a
-                        class="nav-link font-bold text-gray-500 underline decoration-sky-500 hover:decoration-pink-500 p-0"
-                        routerLink="/"
-                    >Home</a
-                    >
-                </li>
-                <li class="nav-item p-2">
-                    <a
-                        class="nav-link font-bold text-gray-500 underline decoration-sky-500 hover:decoration-pink-500 p-0"
-                        routerLink="/list"
-                    >Inventory</a
-                    >
-                </li>
-            </ul>
-            <!-- Left links -->
-        </div>
-        <!-- Collapsible wrapper -->
-        <!-- Right elements -->
-        <div class="flex items-center relative">
-            <!-- Icon -->
-            <a class="mx-2" href="https://twitter.com/ShubhrankR" target="_blank">
-                <img
-                    alt="Shubhrank Rastogi handlle for twitter"
-                    src="https://img.icons8.com/fluent/48/000000/twitter.png"
-                    width="34"
-                />
-            </a>
-            <a
-                class="mx-2"
-                href="https://github.com/ShubhrankR"
-                target="_blank"
-            >
-                <img
-                    alt="Shubhrank Rastogi handle for Github"
-                    src="https://img.icons8.com/fluent/48/000000/github.png"
-                    width="34"
-                />
-            </a>
-        </div>
-        <!-- Right elements -->
+<header class="w-full neu-card px-5 py-3.5 flex items-center justify-between">
+    
+    <!-- Brand Logo & Version Pill -->
+    <div class="flex items-center space-x-3">
+        <a routerLink="/" class="flex items-center space-x-2.5 group">
+            <div class="w-9 h-9 rounded-xl neu-btn flex items-center justify-center text-indigo-500 group-hover:text-purple-500 transition-colors">
+                <i class="fa-solid fa-store text-base"></i>
+            </div>
+            <span class="text-lg font-extrabold font-['Outfit'] tracking-tight text-theme-main group-hover:text-indigo-500 transition-colors">
+                ShopBridge
+            </span>
+        </a>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold neu-input text-indigo-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 mr-1 animate-ping"></span>
+            Admin
+        </span>
     </div>
-</nav>
+
+    <!-- Centered Nav Pills -->
+    <nav class="flex items-center space-x-2">
+        <a
+            routerLink="/"
+            routerLinkActive="neu-input text-indigo-500 font-bold"
+            class="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-theme-secondary neu-btn transition-all"
+        >
+            <i class="fa-solid fa-house mr-1.5 text-[10px]"></i>Home
+        </a>
+        <a
+            routerLink="/list"
+            routerLinkActive="neu-input text-indigo-500 font-bold"
+            class="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-theme-secondary neu-btn transition-all"
+        >
+            <i class="fa-solid fa-boxes-stacked mr-1.5 text-[10px]"></i>Inventory
+        </a>
+        <a
+            routerLink="/add"
+            class="px-3.5 py-1.5 rounded-xl text-xs font-bold neu-btn-primary transition-all active:scale-95"
+        >
+            <i class="fa-solid fa-plus mr-1.5 text-[10px]"></i>Add Item
+        </a>
+    </nav>
+
+    <!-- Social Links & Theme Switcher -->
+    <div class="flex items-center space-x-2">
+        
+        <!-- Theme Toggle Switcher -->
+        <button
+            (click)="toggleTheme()"
+            type="button"
+            [title]="currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+            class="w-8 h-8 rounded-xl neu-btn flex items-center justify-center text-xs transition-colors"
+        >
+            <i *ngIf="currentTheme === 'dark'" class="fa-solid fa-sun text-amber-400"></i>
+            <i *ngIf="currentTheme === 'light'" class="fa-solid fa-moon text-indigo-600"></i>
+        </button>
+
+        <!-- Social Buttons -->
+        <a
+            href="https://x.com/shubhrankR9"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="X (Twitter)"
+            class="w-8 h-8 rounded-xl neu-btn flex items-center justify-center text-xs text-theme-secondary transition-colors"
+        >
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a
+            href="https://github.com/ShubhrankR"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+            class="w-8 h-8 rounded-xl neu-btn flex items-center justify-center text-xs text-theme-secondary transition-colors"
+        >
+            <i class="fa-brands fa-github"></i>
+        </a>
+        <a
+            href="https://www.linkedin.com/in/shubhrankrastogi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            class="w-8 h-8 rounded-xl neu-btn flex items-center justify-center text-xs transition-colors"
+        >
+            <i class="fa-brands fa-linkedin-in text-sky-500"></i>
+        </a>
+    </div>
+
+</header>

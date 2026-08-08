@@ -1,11 +1,126 @@
-/*
- Contents of Styles
- ---------------------
- 1. Tailwind
- 2. Common
- 3. Global
- */
+@use './assets/scss/tailwind';
+@use './assets/scss/global';
+@use './assets/scss/common';
 
-@import './assets/scss/tailwind';
-@import './assets/scss/global';
-@import './assets/scss/common';
+/* Neumorphism & Dynamic Dual-Theme System */
+:root, html.dark {
+  --bg-main: #0f1319;
+  --surface: #181c24;
+  --surface-hover: #1f2530;
+  --shadow-dark: #0a0d12;
+  --shadow-light: #242a36;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --input-bg: #12151c;
+  --input-shadow-dark: #090b0e;
+  --input-shadow-light: #1b202a;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --badge-bg: #12151c;
+  --badge-text: #818cf8;
+}
+
+html.light {
+  --bg-main: #e0e6f0;
+  --surface: #e4ebf5;
+  --surface-hover: #ebf1fa;
+  --shadow-dark: #babecc;
+  --shadow-light: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --input-bg: #e4ebf5;
+  --input-shadow-dark: #babecc;
+  --input-shadow-light: #ffffff;
+  --border-subtle: rgba(255, 255, 255, 0.6);
+  --badge-bg: #e4ebf5;
+  --badge-text: #4f46e5;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Theme Adaptive Typography Classes */
+.text-theme-main {
+  color: var(--text-primary) !important;
+}
+
+.text-theme-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-theme-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Extruded Card Surfaces */
+.neu-card {
+  background: var(--surface);
+  border-radius: 1.25rem;
+  box-shadow: 8px 8px 18px var(--shadow-dark), -8px -8px 18px var(--shadow-light);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+.neu-card-sm {
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 12px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+/* Inset Form Fields & Badges */
+.neu-input {
+  background: var(--input-bg);
+  box-shadow: inset 3px 3px 6px var(--input-shadow-dark), inset -3px -3px 6px var(--input-shadow-light);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+.neu-input::placeholder {
+  color: var(--text-muted);
+}
+.neu-input:focus {
+  box-shadow: inset 3px 3px 6px var(--input-shadow-dark), inset -3px -3px 6px var(--input-shadow-light), 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+/* Tactile Buttons */
+.neu-btn {
+  background: var(--surface);
+  box-shadow: 5px 5px 12px var(--shadow-dark), -5px -5px 12px var(--shadow-light);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.neu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+}
+.neu-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Vibrant Accent Buttons */
+.neu-btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  box-shadow: 5px 5px 14px var(--shadow-dark), -5px -5px 14px var(--shadow-light);
+  color: #ffffff !important;
+}
+
+.neu-btn-emerald {
+  background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+  box-shadow: 5px 5px 14px var(--shadow-dark), -5px -5px 14px var(--shadow-light);
+  color: #ffffff !important;
+}
+
+.neu-btn-rose {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  box-shadow: 5px 5px 14px var(--shadow-dark), -5px -5px 14px var(--shadow-light);
+  color: #ffffff !important;
+}

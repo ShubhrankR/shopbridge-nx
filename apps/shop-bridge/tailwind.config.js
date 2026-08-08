@@ -1,4 +1,4 @@
-const {createGlobPatternsForDependencies} = require('@nrwl/angular/tailwind');
+const {createGlobPatternsForDependencies} = require('@nx/angular/tailwind');
 const {join} = require('path');
 
 module.exports = {
@@ -13,5 +13,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require('tw-elements/dist/plugin')],
+    plugins: [require('tw-elements/dist/plugin.cjs')],
 };

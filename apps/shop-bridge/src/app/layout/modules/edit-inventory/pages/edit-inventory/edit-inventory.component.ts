@@ -7,6 +7,7 @@ import {
 } from '@thinkbridge/data';
 
 @Component({
+    standalone: false,
     selector: 'thinkbridge-edit-inventory',
     templateUrl: './edit-inventory.component.html',
     styleUrls: ['./edit-inventory.component.scss'],
